@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateReservationsTable extends Migration
+class AlterReservation extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,9 @@ class CreateReservationsTable extends Migration
      */
     public function up()
     {
-        Schema::create('reservations', function (Blueprint $table) {
-            $table->id();
-            $table->date("DateDébut");
-            $table->integer("Durée");
+        Schema::table('reservations', function (Blueprint $table) {
+        $table->foreignId('user_id')->constrained();
+        $table->foreignId('place_id')->constrained();
         });
     }
 
@@ -27,6 +26,6 @@ class CreateReservationsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('reservations');
+        //
     }
 }
