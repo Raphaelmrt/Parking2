@@ -34,6 +34,7 @@ class DatabaseSeeder extends Seeder
             'password' => Hash::make('12345678'), // password
             'remember_token' => Str::random(10),
         ]);
-        // \App\Models\User::factory(10)->create();
+         \App\Models\User::factory(10)->create();
+         \App\Models\Place::factory(10)->create();
     }
 }
