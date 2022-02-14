@@ -1,0 +1,3 @@
+On a rencontrer un problème au niveau des ports car le port mysql du Mac d'un élève était de 8889 donc il fallait trouver le bon port est changer dans le .env. 
+Commande pour trouver le port sur mysql tappez:
+SHOW VARIABLES WHERE Variable_name = 'port';
