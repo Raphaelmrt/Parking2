@@ -15,7 +15,7 @@ class ReservationController extends Controller
     public function index()
     {
         $reservation = Reservation::all();
-        return view('');
+        return view('admin_historiqueReservation');
     }
 
     /**
@@ -25,7 +25,7 @@ class ReservationController extends Controller
      */
     public function create()
     {
-        return view('');
+        return view('user_res');
     }
 
     /**
@@ -43,7 +43,7 @@ class ReservationController extends Controller
 
         $reservation = Reservation::create($validatedData);
 
-        return redirect('')->with('success', 'Votre réservation à bien été faite !');
+        return redirect('dashbord')->with('success', 'Votre réservation à bien été faite !');
     }
 
     /**
@@ -56,7 +56,7 @@ class ReservationController extends Controller
     {
         $reservation = Reservation::all();
 
-        return view('', compact('reservation'));
+        return view('user_historique', compact('reservation'));
     }
 
     /**
@@ -69,7 +69,7 @@ class ReservationController extends Controller
     {
         $reservation = Reservation::findOrFail($id);
 
-        return view('', compact('reservation'));
+        return view('admin_editReservation', compact('reservation'));
     }
 
     /**
@@ -88,7 +88,7 @@ class ReservationController extends Controller
 
         Reservation::whereId($id)->update($validatedData);
 
-        return redirect('')->with('success', 'Votre réservation à bien été modifié !');
+        return redirect('admin_historiqueReservation')->with('success', 'Votre réservation à bien été modifié !');
     }
 
     /**
@@ -102,6 +102,6 @@ class ReservationController extends Controller
         $reservation = Reservation::findOrFail($id);
         $reservation->delete();
 
-        return redirect('')->with('success', 'La place a bien été supprimé');
+        return redirect('admin_historiqueReservation')->with('success', 'La place a bien été supprimé');
     }
 }
