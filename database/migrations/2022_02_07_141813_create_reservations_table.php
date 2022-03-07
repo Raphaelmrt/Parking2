@@ -17,6 +17,7 @@ class CreateReservationsTable extends Migration
             $table->id();
             $table->date("DateDébut");
             $table->integer("Durée");
+            $table->boolean("StatutReservation");
         });
     }
 
