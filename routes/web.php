@@ -21,4 +21,14 @@ Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');
 
+Route::middleware(['auth'])->group(function()
+{
+    route::resources([
+        'UserManagement'=> UserController::class,
+        'place' =>PlaceController::class,
+        'Reservation' => ReservationController::class
+    ]);
+});
+
 require __DIR__.'/auth.php';
+
