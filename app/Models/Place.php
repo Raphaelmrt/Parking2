@@ -8,7 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class Place extends Model
 {
     use HasFactory;
-    public $timestamps = false;
+    public $timestamps = false; 
+
+    protected $fillable = ['DateDébut', 'Durée'];
 
     public function Reservation()
     {
