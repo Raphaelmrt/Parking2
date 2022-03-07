@@ -16,6 +16,7 @@ class CreatePlacesTable extends Migration
         Schema::create('places', function (Blueprint $table) {
             $table->id();
             $table->boolean("Handicapé");
+            $table->boolean("Statut");
         });
     }
 

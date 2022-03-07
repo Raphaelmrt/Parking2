@@ -14,8 +14,8 @@ class AlterReservation extends Migration
     public function up()
     {
         Schema::table('reservations', function (Blueprint $table) {
-        $table->foreignId('user_id')->constrained();
-        $table->foreignId('place_id')->constrained();
+        $table->foreignId('user_id')->constrained()->onDelete('cascade');
+        $table->foreignId('place_id')->constrained()->onDelete('cascade');
         });
     }
 
