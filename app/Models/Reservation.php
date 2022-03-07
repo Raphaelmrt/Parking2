@@ -14,6 +14,10 @@ class Reservation extends Model
     {
         return $this->belongsTo(Place::class);
     }
+    public function users()
+    {
+        return $this->belongsTo(User::class);
+    }
 
 
 }
