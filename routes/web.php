@@ -1,6 +1,9 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\UserController;
+use App\Http\Controllers\PlaceController;
+use App\Http\Controllers\ReservationController;
 
 /*
 |--------------------------------------------------------------------------
@@ -25,7 +28,7 @@ Route::middleware(['auth'])->group(function()
 {
     route::resources([
         'UserManagement'=> UserController::class,
-        'place' =>PlaceController::class,
+        'Place' =>PlaceController::class,
         'Reservation' => ReservationController::class
     ]);
 });

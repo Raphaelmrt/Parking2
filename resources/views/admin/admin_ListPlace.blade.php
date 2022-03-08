@@ -26,12 +26,14 @@
                                     <td>non</td>
                                 @endif
                                 @if($Place->Statut)
-                                    @php
-                                        <td>{{$Place->reservation[0]->user->name}}</td>
-                                    @endphp
+                                    
+                                    <td>{{$Place->reservation[0]->user->name}}</td>
+                                    
                                 @else
                                     <td>libre</td>
                                 @endif
+                            </tr>
+                        @endforeach
 
                                         
                     </table>  

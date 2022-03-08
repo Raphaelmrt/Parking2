@@ -11,7 +11,8 @@
                 <div class="p-6 bg-white border-b border-gray-200">
                     Bonjour Administrateur  
                 </div>
-                @if($StatutReservation)<button onclick="window.location.href ='view('dashboard')';" class="favorite styled" type="button"> Réservation </button>
+                <button onclick="window.location.href ='view('dashboard')';" class="favorite styled" type="button"> Réservation </button>
+                
             </div>
         </div>
     </div>

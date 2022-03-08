@@ -16,7 +16,7 @@ class PlaceController extends Controller
     {
         $Places = Place::all();
 
-        return view('admin_ListePlace', compact('Places'));
+        return view('admin.admin_ListPlace', compact('Places'));
     }
 
     /**
@@ -26,7 +26,7 @@ class PlaceController extends Controller
      */
     public function create()
     {
-        return view('admin_addPlace');
+        return view('admin.admin_addPlace');
     }
 
     /**
@@ -43,7 +43,7 @@ class PlaceController extends Controller
         ]);
         
         $Places = Place::create($validatedData);
-        return redirect('admin_ListePlace')->with('success', 'Votre place à bien été réservé !');
+        return redirect('admin.admin_ListePlace')->with('success', 'Votre place à bien été réservé !');
     }
 
     /**
@@ -56,7 +56,7 @@ class PlaceController extends Controller
     {
         $place = Place::all();
 
-        return view('admin_ListePlace', compact('place'));
+        return view('admin.admin_ListePlace', compact('place'));
     }
 
     /**
@@ -67,7 +67,7 @@ class PlaceController extends Controller
      */
     public function edit($id)
     {
-        return view('admin_editPlace');
+        return view('admin.admin_editPlace');
     }
 
     /**
@@ -85,7 +85,7 @@ class PlaceController extends Controller
 
         Place::whereId($id)->update($validatedData);
 
-        return redirect('admin_ListePlace')->with('success', 'Votre place à bien été mis à jour !');
+        return redirect('admin.admin_ListePlace')->with('success', 'Votre place à bien été mis à jour !');
     }
 
     /**
@@ -99,6 +99,6 @@ class PlaceController extends Controller
         $place = Place::findOrFail($id);
         $place->delete();
 
-        return redirect('admin_ListePlace')->with('success', 'La place a bien été supprimé');
+        return redirect('admin.admin_ListePlace')->with('success', 'La place a bien été supprimé');
     }
 }

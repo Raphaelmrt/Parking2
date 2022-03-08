@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Reservation;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class ReservationController extends Controller
 {
@@ -14,8 +15,8 @@ class ReservationController extends Controller
      */
     public function index()
     {
-        $reservation = Reservation::all();
-        return view('admin_historiqueReservation');
+        $reservations = Reservation::all();
+        return view('admin.admin_historiqueReservation', compact('reservations'));
     }
 
     /**
@@ -25,7 +26,7 @@ class ReservationController extends Controller
      */
     public function create()
     {
-        return view('user_res');
+        return view('user.user_res');
     }
 
     /**
@@ -54,9 +55,10 @@ class ReservationController extends Controller
      */
     public function show($id)
     {
-        $reservation = Reservation::all();
 
-        return view('user_historique', compact('reservation'));
+        $reservations = Reservation::where('user_id',Auth::user()->id)->get();
+
+        return view('user.user_historique', compact('reservations'));
     }
 
     /**
@@ -69,7 +71,7 @@ class ReservationController extends Controller
     {
         $reservation = Reservation::findOrFail($id);
 
-        return view('admin_editReservation', compact('reservation'));
+        return view('admin.admin_editReservation', compact('reservation'));
     }
 
     /**
@@ -88,7 +90,7 @@ class ReservationController extends Controller
 
         Reservation::whereId($id)->update($validatedData);
 
-        return redirect('admin_historiqueReservation')->with('success', 'Votre réservation à bien été modifié !');
+        return redirect('admin.admin_historiqueReservation')->with('success', 'Votre réservation à bien été modifié !');
     }
 
     /**
@@ -102,6 +104,6 @@ class ReservationController extends Controller
         $reservation = Reservation::findOrFail($id);
         $reservation->delete();
 
-        return redirect('admin_historiqueReservation')->with('success', 'La place a bien été supprimé');
+        return redirect('admin.admin_historiqueReservation')->with('success', 'La place a bien été supprimé');
     }
 }

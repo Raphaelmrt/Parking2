@@ -18,25 +18,25 @@
                 </div>
 
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                    <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
+                    <x-nav-link :href="route('Reservation.index')" :active="request()->routeIs('Reservation.index')">
                         {{ __('Réservation') }}
                     </x-nav-link>
                 </div>
 
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                    <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
+                    <x-nav-link :href="route('Reservation.show','historique')" :active="request()->routeIs('Historique.show')">
                         {{ __('Historique') }}
                     </x-nav-link>
                 </div>
 
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                    <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
+                    <x-nav-link :href="route('UserManagement.index')" :active="request()->routeIs('UserManagement.index')">
                         {{ __('Liste utilisateur') }}
                     </x-nav-link>
                 </div>
 
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                    <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
+                    <x-nav-link :href="route('Place.index')" :active="request()->routeIs('Place.index')">
                         {{ __('Place') }}
                     </x-nav-link>
                 </div>
