@@ -14,8 +14,8 @@ class UserController extends Controller
      */
     public function index()
     {
-        $user = User::all();
-        return view('');
+        $users = User::all();
+        return view('admin.admin_ListUser', compact('users'));
     }
 
     /**
@@ -25,7 +25,7 @@ class UserController extends Controller
      */
     public function create()
     {
-        return view('');
+        return view('admin.admin_CreateUser');
     }
 
     /**
@@ -45,7 +45,7 @@ class UserController extends Controller
         
         $user = User::create($validatedData);
 
-        return view('')->with('sucess', 'Votre utilisateur à bien été crée');
+        return view('admin.admin_ListUser')->with('sucess', 'Votre utilisateur à bien été crée');
     }
 
     /**
@@ -56,9 +56,8 @@ class UserController extends Controller
      */
     public function show($id)
     {
-        $user = User::all();
-
-        return view('', compact('user'));
+        $user = User::findOrFail($id);
+        return view('admin.admin_ShowUser', compact('user'));
     }
 
     /**
@@ -71,7 +70,7 @@ class UserController extends Controller
     {
         $user = User::findOrFail($id);
 
-        return view('', compact('user'));
+        return view('admin.admin_ShowUser', compact('user'));
     }
 
     /**
@@ -92,7 +91,7 @@ class UserController extends Controller
 
         User::whereId($id)->update($validatedData);
 
-        return redirect('')->with('success', 'Votre utilisateur à bien été modifié !');
+        return redirect('admin.admin_ListUser')->with('success', 'Votre utilisateur à bien été modifié !');
     }
 
     /**
@@ -106,6 +105,6 @@ class UserController extends Controller
         $user = User::findOrFail($id);
         $user->delete();
 
-        return redirect('')->with('success', 'L utilisateur à bien été supprimé');
+        return redirect('admin.admin_ListUser')->with('success', 'L utilisateur à bien été supprimé');
     }
 }
