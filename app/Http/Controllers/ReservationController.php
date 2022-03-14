@@ -47,7 +47,11 @@ class ReservationController extends Controller
             $data->place_id=Place::where('Statut', 0)->first()->id;
             $data->Durée=6;
             $data->StatutReservation=1;
+            $place= $data->place_id;
             $data->save();
+            $place=Place::find($place);
+            $place->statut =1;
+            $place->update();
         }
 
         return redirect('dashboard')->with('success', 'Votre réservation à bien été faite !');
