@@ -11,7 +11,7 @@
                 <div class="p-6 bg-white border-b border-gray-200">
                     Bonjour Administrateur  
                 </div>
-                <form action="{{route("reservation.store")}}" method="POST">
+                <form action="{{route('Reservation.store')}}" method="POST">
                     <input class="favorite styled" type="submit" value="réserver">
                 </form>
                 
