@@ -44,7 +44,9 @@ class ReservationController extends Controller
             $data= new Reservation;
             $data->DateDébut=Carbon::now();
             $data->user_id=Auth::user()->id;
-            $data->place_id=Place::where('Statut', 0)->first();
+            $data->place_id=Place::where('Statut', 0)->first()->id;
+            $data->Durée=6;
+            $data->StatutReservation=1;
             $data->save();
         }
 
