@@ -17,12 +17,13 @@
                             <th>utilisateur</th>
                             <th>date début</th>
                         </thead>
-                        <tbody
+                        <tbody>
+
                         @foreach ($reservations as $reservation)
-                        
+
                             <tr>
-                                <td>{{$reservation->id_place}}</td>
-                                <td>{{$reservation->users()->name}} {{$reservation->users()->surname}}</td>
+                                <td>{{$reservation->place_id}}</td>
+                                <td>{{$reservation->user->name}} {{$reservation->user->surname}}</td>
                                 <td>{{$reservation->DateDébut}}</td>
                                 
                             </tr>

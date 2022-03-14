@@ -42,7 +42,7 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    public function Reservation()
+    public function Reservations()
     {
         return $this->hasMany(Reservation::class);
     }

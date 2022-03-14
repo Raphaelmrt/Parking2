@@ -20,7 +20,7 @@
                         @foreach ($reservations as $reservation)
                         
                             <tr>
-                                <td>{{$reservation->id_place}}</td>
+                                <td>{{$reservation->place_id}}</td>
  
                                 <td>{{$reservation->DateDébut}}</td>
                                 
