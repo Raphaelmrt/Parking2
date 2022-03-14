@@ -10,8 +10,9 @@
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 bg-white border-b border-gray-200">
 
-                    <form action="{{route('UserManagement.update', $user->id)}}" method="PUT">
+                    <form action="{{route('UserManagement.update',$user->id)}}" method="POST">
                         @csrf
+                        @method('PUT')
                         <input type="text" name="name" id="name"value="{{$user->name}}">
                         <input type="text" name="surname" id="surname" value="{{$user->surname}}">
                         <input type="mail" name="email" id="email" value="{{$user->email}}">

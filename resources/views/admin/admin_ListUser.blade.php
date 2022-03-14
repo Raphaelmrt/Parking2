@@ -18,7 +18,7 @@
                             <th>email</th>
                             <th>modification</th>
                         </thead>
-                        <tbody
+                        <tbody>
                         @foreach ($users as $user)
                         
                             <tr>

@@ -56,8 +56,7 @@ class UserController extends Controller
      */
     public function show($id)
     {
-        $user = User::findOrFail($id);
-        return view('admin.admin_ShowUser', compact('user'));
+        //
     }
 
     /**
@@ -69,7 +68,6 @@ class UserController extends Controller
     public function edit($id)
     {
         $user = User::findOrFail($id);
-
         return view('admin.admin_ShowUser', compact('user'));
     }
 
@@ -82,18 +80,18 @@ class UserController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $utilisateur=User::find($id);
+        $utilisateur=User::findOrFail($id);
         $request->validate([
             'name' => 'required',
             'surname' => 'required',
             'email' => ['required', 'email']
 
         ]);
-        $utilisateur->name=$request->name;
-        $utilisateur->surname=$request->surname;
-        $utilisateur->email=$request->email;
+        $utilisateur->name=$request->input('name');
+        $utilisateur->surname=$request->input('surname');
+        $utilisateur->email=$request->input('email');
         $utilisateur->update();
-        return redirect('admin.admin_ListUser')->with('success', 'Votre utilisateur à bien été modifié !');
+        return redirect(route('UserManagement.index'))->with('success', 'Votre utilisateur à bien été modifié !');
     }
 
     /**
