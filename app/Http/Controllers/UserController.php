@@ -82,15 +82,17 @@ class UserController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $validatedData = $request->validate([
+        $utilisateur=User::find($id);
+        $request->validate([
             'name' => 'required',
-            'email' => 'required',
-            'email_verified_at' => 'required',
-            'password' => 'required',
+            'surname' => 'required',
+            'email' => ['required', 'email']
+
         ]);
-
-        User::whereId($id)->update($validatedData);
-
+        $utilisateur->name=$request->name;
+        $utilisateur->surname=$request->surname;
+        $utilisateur->email=$request->email;
+        $utilisateur->update();
         return redirect('admin.admin_ListUser')->with('success', 'Votre utilisateur à bien été modifié !');
     }
 
