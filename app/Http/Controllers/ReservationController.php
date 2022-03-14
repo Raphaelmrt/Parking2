@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use Carbon\Carbon;
+use App\Models\Place;
 use App\Models\Reservation;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -37,14 +39,16 @@ class ReservationController extends Controller
      */
     public function store(Request $request)
     {
-        $validatedData = $request->validate([
-            'DateDébut' => 'required',
-            'Durée' => 'required',
-        ]);
+        if((Place::where("Statut", 0)->get())->isNotEmpty())
+        {
+            $data= new Reservation;
+            $data->DateDébut=Carbon::now();
+            $data->user_id=Auth::user()->id;
+            $data->place_id=Place::where('Statut', 0)->first();
+            $data->save();
+        }
 
-        $reservation = Reservation::create($validatedData);
-
-        return redirect('dashbord')->with('success', 'Votre réservation à bien été faite !');
+        return redirect('dashboard')->with('success', 'Votre réservation à bien été faite !');
     }
 
     /**

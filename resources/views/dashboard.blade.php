@@ -11,7 +11,9 @@
                 <div class="p-6 bg-white border-b border-gray-200">
                     Bonjour Administrateur  
                 </div>
-                <button onclick="window.location.href ='view('dashboard')';" class="favorite styled" type="button"> Réservation </button>
+                <form action="{{route("reservation.store")}}" method="POST">
+                    <input class="favorite styled" type="submit" value="réserver">
+                </form>
                 
             </div>
         </div>
