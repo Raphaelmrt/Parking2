@@ -13,7 +13,6 @@
                 </div>
 
                 <form action="{{route('Reservation.store')}}" method="POST">
-                <form action="{{route("Reservation.store")}}" method="POST">
                     @csrf
                     <input class="favorite styled" type="submit" value="réserver">
                 </form>
