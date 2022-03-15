@@ -39,19 +39,23 @@ class ReservationController extends Controller
      */
     public function store(Request $request)
     {
-        if((Place::where("Statut", 0)->get())->isNotEmpty())
+        $reservations=Reservation::select('place_id')->where('StatutReservation', 1);
+        $Places=Place::all();
+        if($reservations->count()<$Places->count())
         {
+            $Places=Place::whereNotIn('id', $reservations);
             $data= new Reservation;
             $data->DateDébut=Carbon::now();
             $data->user_id=Auth::user()->id;
-            $data->place_id=Place::where('Statut', 0)->first()->id;
+            $data->place_id=$Places->first()->id;
             $data->Durée=6;
             $data->StatutReservation=1;
-            $place= $data->place_id;
             $data->save();
-            $place=Place::find($place);
-            $place->statut =1;
-            $place->update();
+        }
+        else
+        {
+            //
+            
         }
 
         return redirect('dashboard')->with('success', 'Votre réservation à bien été faite !');

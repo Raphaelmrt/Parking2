@@ -15,7 +15,6 @@ class PlaceFactory extends Factory
     {
         return [
             'Handicapé' =>random_int(0, 1),
-            'Statut' => 0
         ];
     }
 }
