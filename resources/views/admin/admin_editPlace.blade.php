@@ -12,12 +12,15 @@
 
                     <form action="{{route('Place.update', $place->id)}}" method="POST">
                         @csrf
+                        @method('PUT')
                         @if($place->handicapé)
-                            <input type="radio" name="handicapé" value="Handicapé">
                             <input type="radio" name="nonHandicapé" value="Normal">
+                            <input type="radio" name="handicapé" value="Handicapé" checked>
+                            
                         @else
+                            <input type="radio" name="nonHandicapé" value="Normal" checked>
                             <input type="radio" name="handicapé" value="Handicapé">
-                            <input type="radio" name="nonHandicapé" value="Normal">
+                            
                         @endif
 
                         <input type="submit" value="Valider"> 

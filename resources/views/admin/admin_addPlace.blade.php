@@ -12,8 +12,9 @@
 
                     <form action="{{route('Place.create')}}" method="POST">
                         @csrf
+                        <input type="radio" name="nonHandicapé" value="Normal" checked>
                         <input type="radio" name="handicapé" value="Handicapé">
-                        <input type="radio" name="nonHandicapé" value="Normal">
+                        
 
                         <input type="submit" value="Valider"> 
                     </form>
