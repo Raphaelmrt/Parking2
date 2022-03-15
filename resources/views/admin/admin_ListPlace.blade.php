@@ -12,11 +12,12 @@
                     Liste des places
 
                     <table>
-                        <tr>
-                            <td>Numéro place</td>
-                            <td>Handicapé</td>
-                            <td>Occupé par</td>
-                        </tr>
+                        <thead>
+                            <th>Numéro place</th>
+                            <th>Handicapé</th>
+                            <th>Occupé par</th>
+                        </thead>
+                        <tbody>
                         @foreach ($Places as $Place)
                             <tr>
                                 <td>{{$Place->id}}</td>
@@ -25,16 +26,16 @@
                                 @else
                                     <td>non</td>
                                 @endif
-                                @if($Place->Statut)
+                                @if($Place->estOccupe())
                                     
-                                    <td>{{$Place->reservation[0]->user->name}}</td>
+                                    <td>{{$Place->reservation[0]->user->name}} {{$Place->reservation[0]->user->surname}}</td>
                                     
                                 @else
                                     <td>libre</td>
                                 @endif
                             </tr>
                         @endforeach
-
+                        </tbody>
                                         
                     </table>  
                 </div>

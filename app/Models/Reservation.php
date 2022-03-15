@@ -20,5 +20,14 @@ class Reservation extends Model
         return $this->belongsTo(User::class);
     }
 
+    public static function estActif($id)
+    {
+        if(Reservation::where('place_id', $id)->where('StatutReservation', 1)->get()->isNotEmpty())
+            return true;
+        else
+            return false;
+        
+    }
+
 
 }

@@ -2,8 +2,9 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use App\Models\Reservation;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Place extends Model
 {
@@ -15,5 +16,10 @@ class Place extends Model
     public function Reservation()
     {
         return $this->hasMany(Reservation::class);
+    }
+
+    public function estOccupe()
+    {
+        return(Reservation::estActif($this->id));
     }
 }
