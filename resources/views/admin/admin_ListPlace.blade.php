@@ -16,6 +16,8 @@
                             <th>Numéro place</th>
                             <th>Handicapé</th>
                             <th>Occupé par</th>
+                            <th>Modifier</th>
+                            <th>Supprimer</th>
                         </thead>
                         <tbody>
                         @foreach ($Places as $Place)
@@ -33,6 +35,14 @@
                                 @else
                                     <td>libre</td>
                                 @endif
+                                <td><a href="{{route('Place.edit', $Place->id)}}">modifier</a></td>
+                                <td>
+                                    <form method ='POST' action="{{route('Place.destroy', $Place)}}">
+                                        @method('DELETE')
+                                        @csrf
+                                        <input type='submit' value='supprimer'>
+                                    </form>
+                                </td>
                             </tr>
                         @endforeach
                         </tbody>
