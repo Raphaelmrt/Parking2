@@ -1,7 +1,7 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Créer une place') }}
+            {{ __('Modifier le statut de la place') }}
         </h2>
     </x-slot>
 
@@ -9,17 +9,17 @@
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 bg-white border-b border-gray-200">
-
-                    <form action="{{route('Place.update', $place->id)}}" method="POST">
+                    Handicapé :
+                    <form action="{{route('Place.update', $Place->id)}}" method="POST">
                         @csrf
                         @method('PUT')
-                        @if($place->handicapé)
-                            <input type="radio" name="nonHandicapé" value="Normal">
-                            <input type="radio" name="handicapé" value="Handicapé" checked>
+                        @if($Place->handicapé)
+                            <label for="nonHandicapé"> Non :<input type="radio" name="nonHandicapé" value="Normal"><br>
+                            <label for="handicapé"> Oui :<input type="radio" name="handicapé" value="Handicapé" checked>
                             
                         @else
-                            <input type="radio" name="nonHandicapé" value="Normal" checked>
-                            <input type="radio" name="handicapé" value="Handicapé">
+                            <label for="nonHandicapé"> Non :<input type="radio" name="nonHandicapé" value="Normal" checked><br>
+                            <label for="handicapé"> Oui :<input type="radio" name="handicapé" value="Handicapé">
                             
                         @endif
 
