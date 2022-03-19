@@ -1,7 +1,7 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Modifier utilisateur') }}
+            {{ __('Créer un utilisateur') }}
         </h2>
     </x-slot>
 
@@ -12,10 +12,12 @@
 
                     <form action="{{route('UserManagement.store')}}" method="POST">
                         @csrf
-                        <input type="text" name="name" id="name">
-                        <input type="text" name="surname" id="surname">
-                        <input type="mail" name="email" id="email">
-                        <input type="password" name="password">
+                        <label for="name">Nom : </label>
+                            <input type="text" name="name" id="name" value="">
+                        <label for="surname">Prénom : </label>    
+                        <input type="text" name="surname" id="surname" value="">
+                        <input type="mail" name="email" id="email" placeholder=" Ex : VotreEmail@mail.mail">
+                        <input type="password" name="password" value="">
                         <input type="submit" value="Valider"> 
                     </form>
 
