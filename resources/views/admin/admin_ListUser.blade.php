@@ -27,7 +27,13 @@
                                 <td>{{$user->surname}}</td>
                                 <td>{{$user->email}}</td>
                                 <td><a href="{{route('UserManagement.edit', $user->id)}}">modifier</a></td>
-                                <td><a href="{{route('UserManagement.destroy', $user->id)}}">Supprimer</a></td>
+                                <td>
+                                    <form method ='POST' action="{{route('UserManagement.destroy', $user)}}">
+                                        @method('DELETE')
+                                        @csrf
+                                        <input type='submit' value='supprimer'>
+                                    </form>
+                                </td>
                             </tr>
                         
                         @endforeach
