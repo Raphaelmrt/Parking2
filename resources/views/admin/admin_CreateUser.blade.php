@@ -12,12 +12,14 @@
 
                     <form action="{{route('UserManagement.store')}}" method="POST">
                         @csrf
-                        <label for="name">Nom : </label>
+                        <label for="name">Nom : </label><br>
                             <input type="text" name="name" id="name" value="">
-                        <label for="surname">Prénom : </label>    
-                        <input type="text" name="surname" id="surname" value="">
-                        <input type="mail" name="email" id="email" placeholder=" Ex : VotreEmail@mail.mail">
-                        <input type="password" name="password" value="">
+                        <br><label for="surname">Prénom : </label><br>    
+                            <input type="text" name="surname" id="surname" value="">
+                        <br><label for="email">Courriel : </label><br>    
+                            <input type="mail" name="email" id="email" placeholder=" Ex : VotreEmail@mail.mail">
+                        <br><label for="password">Mot de passe : </label><br>    
+                            <input type="password" name="password" value="">
                         <input type="submit" value="Valider"> 
                     </form>
 
