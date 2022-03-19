@@ -102,9 +102,10 @@ class UserController extends Controller
      */
     public function destroy($id)
     {
-        $user = User::findOrFail($id);
-        $user->delete();
+        User::destroy($id);
+        //$user = User::findOrFail($id);
+        //$user->delete();
 
-        return redirect('admin.admin_ListUser')->with('success', 'L utilisateur à bien été supprimé');
+        return redirect(route('UserManagement.index'))->with('success', 'L utilisateur à bien été supprimé');
     }
 }
