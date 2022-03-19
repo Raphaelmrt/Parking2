@@ -67,7 +67,8 @@ class PlaceController extends Controller
      */
     public function edit($id)
     {
-        return view('admin.admin_editPlace');
+        $Place = Place::findOrFail($id);
+        return view('admin.admin_editPlace', compact('Place'));
     }
 
     /**
