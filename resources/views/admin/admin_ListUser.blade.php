@@ -17,6 +17,7 @@
                             <th>prénom</th>
                             <th>email</th>
                             <th>modification</th>
+                            <th>supprimer</th>
                         </thead>
                         <tbody>
                         @foreach ($users as $user)
@@ -26,6 +27,7 @@
                                 <td>{{$user->surname}}</td>
                                 <td>{{$user->email}}</td>
                                 <td><a href="{{route('UserManagement.edit', $user->id)}}">modifier</a></td>
+                                <td><a href="{{route('UserManagement.destroy', $user->id)}}">Supprimer</a></td>
                             </tr>
                         
                         @endforeach
