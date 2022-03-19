@@ -100,6 +100,6 @@ class PlaceController extends Controller
         $place = Place::findOrFail($id);
         $place->delete();
 
-        return redirect('admin.admin_ListePlace')->with('success', 'La place a bien été supprimé');
+        return redirect(route('Place.index'))->with('success', 'La place a bien été supprimé');
     }
 }
