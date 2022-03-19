@@ -13,9 +13,12 @@
                     <form action="{{route('UserManagement.update',$user->id)}}" method="POST">
                         @csrf
                         @method('PUT')
-                        <input type="text" name="name" id="name"value="{{$user->name}}">
-                        <input type="text" name="surname" id="surname" value="{{$user->surname}}">
-                        <input type="mail" name="email" id="email" value="{{$user->email}}">
+                        <label for="name">Nom : </label><br>
+                            <input type="text" name="name" id="name"value="{{$user->name}}">
+                        <br><label for="name">Nom : </label><br>    
+                            <input type="text" name="surname" id="surname" value="{{$user->surname}}">
+                        <br><label for="name">Nom : </label><br>        
+                            <input type="mail" name="email" id="email" value="{{$user->email}}">
                         <input type="submit" value="Valider"> 
                     </form>
 
