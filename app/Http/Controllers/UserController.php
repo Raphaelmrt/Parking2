@@ -39,13 +39,16 @@ class UserController extends Controller
         $validatedData = $request->validate([
             'name' => 'required',
             'email' => 'required',
-            'email_verified_at' => 'required',
             'password' => 'required',
         ]);
-        
-        $user = User::create($validatedData);
+        $user = new User;
+        $user->password = $request->password;
+        $user->email=$request->email;
+        $user->name = $request->name;
+        $user->surname = $request->surname;
+        $user->save();
 
-        return view('admin.admin_ListUser')->with('sucess', 'Votre utilisateur à bien été crée');
+        return redirect(route('UserManagement.index'))->with('sucess', 'Votre utilisateur à bien été crée');
     }
 
     /**
