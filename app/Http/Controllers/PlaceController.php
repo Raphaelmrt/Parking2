@@ -38,12 +38,13 @@ class PlaceController extends Controller
     public function store(Request $request)
     {
         
-        $validatedData = $request->validate([
-            'Handicapée' => 'required',
-        ]);
-        
-        $Places = Place::create($validatedData);
-        return redirect('admin.admin_ListePlace')->with('success', 'Votre place à bien été réservé !');
+        $place = new Place;
+        if(isset($request->handicapé))
+            $place->handicapé= $request->handicapé;
+        else
+            $place->handicapé= $request->nonHandicapé;
+        $place->save();
+        return redirect(route('Place.index'))->with('success', 'Votre place à bien été réservé !');
     }
 
     /**
@@ -54,9 +55,7 @@ class PlaceController extends Controller
      */
     public function show($id)
     {
-        $place = Place::all();
-
-        return view('admin.admin_ListePlace', compact('place'));
+      //
     }
 
     /**

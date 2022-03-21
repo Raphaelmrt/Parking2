@@ -14,9 +14,9 @@
                         @csrf
                         <H4>La place est-elle pour Handicapé ?</H4>
                         <br><label for="nonHandicapé">Non
-                            <input type="radio" name="nonHandicapé" value="Normal" checked><br>
+                            <input type="radio" name="nonHandicapé" value="0" checked><br>
                         <label for="handicapé">Oui    
-                            <input type="radio" name="handicapé" value="Handicapé"><br>
+                            <input type="radio" name="handicapé" value="1"><br>
                         
 
                         <input type="submit" value="Valider"> 

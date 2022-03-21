@@ -14,12 +14,12 @@
                         @csrf
                         @method('PUT')
                         @if($Place->handicapé)
-                            <label for="nonHandicapé"> Non :<input type="radio" name="nonHandicapé" value="Normal"><br>
-                            <label for="handicapé"> Oui :<input type="radio" name="handicapé" value="Handicapé" checked>
+                            <label for="nonHandicapé"> Non :<input type="radio" name="nonHandicapé" value="0"><br>
+                            <label for="handicapé"> Oui :<input type="radio" name="handicapé" value="1" checked>
                             
                         @else
-                            <label for="nonHandicapé"> Non :<input type="radio" name="nonHandicapé" value="Normal" checked><br>
-                            <label for="handicapé"> Oui :<input type="radio" name="handicapé" value="Handicapé">
+                            <label for="nonHandicapé"> Non :<input type="radio" name="nonHandicapé" value="0" checked><br>
+                            <label for="handicapé"> Oui :<input type="radio" name="handicapé" value="1">
                             
                         @endif
 
