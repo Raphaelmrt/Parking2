@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Carbon\Carbon;
+use App\Models\User;
 use App\Models\Place;
 use App\Models\Reservation;
 use Illuminate\Http\Request;
@@ -54,7 +55,9 @@ class ReservationController extends Controller
         }
         else
         {
-            //
+            $user=User::findOrFail(Auth::user()->id);
+            $user->rangFile=User::where('rangFile','<>',0)->get()->count()+1;
+            $user->save();
             
         }
 
@@ -116,7 +119,8 @@ class ReservationController extends Controller
     public function destroy($id)
     {
         $reservation = Reservation::findOrFail($id);
-        $reservation->delete();
+        $reservation->StatutReservation=0;
+        $reservation->update();
 
         return redirect('admin.admin_historiqueReservation')->with('success', 'La place a bien été supprimé');
     }
