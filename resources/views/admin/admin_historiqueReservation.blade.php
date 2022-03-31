@@ -16,6 +16,7 @@
                             <th>numero place</th>
                             <th>utilisateur</th>
                             <th>date début</th>
+                            <th>en utilisation</th>
                         </thead>
                         <tbody>
 
@@ -25,6 +26,19 @@
                                 <td>{{$reservation->place_id}}</td>
                                 <td>{{$reservation->user->name}} {{$reservation->user->surname}}</td>
                                 <td>{{$reservation->DateDébut}}</td>
+                                @if($reservation->StatutReservation)
+                                        <td>oui</td>
+                                    <td>
+                                    <form method ='POST' action="{{route('Reservation.destroy', $reservation)}}">
+                                        @method('DELETE')
+                                        @csrf
+                                        <input type='submit' value='supprimer'>
+                                    </form>
+                                    </td>
+                                    @else
+                                        <td>non</td> 
+                                    @endif
+                                
                                 
                             </tr>
                         
