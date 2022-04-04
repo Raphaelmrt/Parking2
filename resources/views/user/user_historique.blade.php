@@ -15,6 +15,7 @@
                         <thead>
                             <th>numero place</th>
                             <th>date début</th>
+                            <th>EN utilisation</th>
                         </thead>
                         <tbody>
                         @foreach ($reservations as $reservation)
@@ -23,6 +24,18 @@
                                 <td>{{$reservation->place_id}}</td>
  
                                 <td>{{$reservation->DateDébut}}</td>
+                                @if($reservation->StatutReservation)
+                                        <td>oui</td>
+                                    <td>
+                                    <form method ='POST' action="{{route('Reservation.destroy', $reservation)}}">
+                                        @method('DELETE')
+                                        @csrf
+                                        <input type='submit' value='supprimer'>
+                                    </form>
+                                    </td>
+                                    @else
+                                        <td>non</td> 
+                                    @endif
                                 
                             </tr>
                         
