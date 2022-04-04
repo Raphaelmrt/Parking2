@@ -122,6 +122,6 @@ class ReservationController extends Controller
         $reservation->StatutReservation=0;
         $reservation->update();
 
-        return redirect(route('Reservation.index'))->with('success', 'La place a bien été supprimé');
+        return back();
     }
 }
